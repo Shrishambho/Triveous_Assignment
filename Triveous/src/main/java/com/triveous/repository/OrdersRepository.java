@@ -3,10 +3,9 @@ package com.triveous.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.triveous.model.Cart;
+import com.triveous.model.Orders;
 
 @Repository
-public interface CartRepository extends JpaRepository<Cart,Integer> {
+public interface OrdersRepository extends JpaRepository<Orders,Integer> {
 
-	
 }
