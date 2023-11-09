@@ -56,8 +56,9 @@ public class AppConfig {
 			auth
 				.requestMatchers(HttpMethod.POST,"/customer").permitAll()
 				.requestMatchers(HttpMethod.POST, "/address/**","/orders/**","/payments/**").hasAnyRole("ADMIN","USER")
-				.requestMatchers(HttpMethod.GET, "/customer","/cart","/orders","/orders/**","/payments").hasRole("ADMIN")
-				.requestMatchers(HttpMethod.POST, "/product").hasRole("ADMIN")
+				.requestMatchers(HttpMethod.GET, "product/**","productById/**").hasAnyRole("ADMIN","USER")
+				.requestMatchers(HttpMethod.GET, "/customer","/cart","/category").hasRole("ADMIN")
+				.requestMatchers(HttpMethod.POST, "/product/**","/category").hasRole("ADMIN")
 				.requestMatchers(HttpMethod.PATCH, "/productPrice/**","/productQuantity/**").hasRole("ADMIN")
 				.requestMatchers(HttpMethod.PATCH, "/cart/**").hasAnyRole("USER","ADMIN")
 				.requestMatchers(HttpMethod.DELETE, "/product/**","/customer/**").hasRole("ADMIN")
